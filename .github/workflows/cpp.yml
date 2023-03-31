@@ -16,8 +16,8 @@ jobs:
       run: |
         cmake -S . -B build
         cmake --build build
-      working-directory: sample-cpp
+      working-directory: sample_cpp
     - name: test
       run: |
         ctest
-      working-directory: sample-cpp/build
+      working-directory: sample_cpp/build
