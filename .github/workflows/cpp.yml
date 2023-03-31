@@ -1,0 +1,23 @@
+name: C++
+
+on:
+  push:
+    branches: [ $default-branch ]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: build
+      run: |
+        cmake -S . -B build
+        cmake --build build
+      working-directory: sample_cpp
+    - name: test
+      run: |
+        ctest
+      working-directory: sample_cpp/build
